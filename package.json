@@ -1,0 +1,29 @@
+{
+  "name": "zentrix-lab-rpg",
+  "version": "1.0.0",
+  "description": "Game system for a fictional RPG video game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"cd services/character-service && npm start\" \"cd api-gateway && npm start\"",
+    "dev": "concurrently \"cd services/character-service && npm run dev\" \"cd api-gateway && npm run dev\"",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vesnafarmakpowrs/zentrix-lab-rpg.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vesnafarmakpowrs/zentrix-lab-rpg/issues"
+  },
+  "homepage": "https://github.com/vesnafarmakpowrs/zentrix-lab-rpg#readme",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

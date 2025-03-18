@@ -1,0 +1,52 @@
+
+services:
+  account-service:
+    build:
+      context: ./services/account-service
+    ports:
+      - "3001:3001"
+    environment:
+      - DATABASE_URL=postgres://postgres:admin@postgres:5432/zentrix_lab_account
+      - REDIS_URL=redis://redis:6379
+    # depends_on:
+    #   - postgres
+    #   - redis
+
+  character-service:
+    build:
+      context: ./services/character-service
+    ports:
+      - "3002:3002"
+    environment:
+      - DATABASE_URL=postgres://postgres:admin@postgres:5432/zentrix_lab_character
+      - REDIS_URL=redis://redis:6379
+    # depends_on:
+    #   - postgres
+    #   - redis
+
+  combat-service:
+    build:
+      context: ./services/combat-service
+    ports:
+      - "3003:3003"
+    environment:
+      - DATABASE_URL=postgres://postgres:admin@postgres:5432/combat_db
+      - REDIS_URL=redis://redis:6379
+    # depends_on:
+    #   - postgres
+    #   - redis
+
+  # postgres:
+  #   image: postgres:13
+  #   environment:
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: admin
+  #     POSTGRES_DB: account_db
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+
+  # redis:
+  #   image: redis:alpine
+
+# volumes:
+#   postgres_data:
